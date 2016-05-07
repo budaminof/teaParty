@@ -1,0 +1,59 @@
+<div>
+
+  <table>
+    <thead>
+      <tr>
+        <th><h5>Tea</h5></th>
+        <th><h5>
+          <span class="nametea">Information</span>
+          <span class="text-right"><h5>Sort By Price:
+            <select ng-model="sortBy">
+              <option value="-">Highest</option>
+              <option value="">Lowest</option>
+            </select>
+          </h5>
+          </span>
+        </h5></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr ng-repeat="item in stock">
+        <td>
+          <img ng-src="{{item.imageUrl}}">
+        </td>
+        <td>
+          <h3>
+            <span ng-bind="item.name" class="nametea"></span>
+            <span class="text-right"><h3>Quantity:
+              <select ng-model="quantity">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <button class="btn btn-warning">Add To Cart</button>
+            </h3>
+            </span>
+          </h3>
+          <p><strong>Price: </strong><span ng-bind="item.price"></span></p>
+          <p><strong>Caffeine Scale: </strong><span ng-bind="item.caffeineScale"></span></p>
+          <p><strong>Ingredients: </strong><span ng-bind="item.ingredients"></span></p>
+          <p><strong>Rating: </strong><span ng-bind="item.rating"></span></p>
+          <p><strong>In Stock? </strong><span ng-bind="item.inStock"></span></p>
+          <p><strong>Categories</strong></p>
+          <ul>
+            <li ng-repeat="category in item.categories"><span ng-bind="category"></span></li>
+          </ul>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
