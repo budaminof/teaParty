@@ -1,0 +1,17 @@
+{
+  "name": "teaShop",
+  "homepage": "https://github.com/budaminof/teaParty",
+  "authors": [
+    "bud aminof <budaminof@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
