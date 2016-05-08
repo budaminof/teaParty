@@ -3,7 +3,7 @@
   <p>Search by category: <select ng-model="sortCategory">
         <option value="" ng-rep></option>
       </select>
-      Search by name: <input type="text">
+      Search by name: <input ng-model="vm.search" type="text">
       <button class="cart-butt btn btn-danger">Checkout | Bag:</button>
   </p>
 
@@ -26,7 +26,7 @@
     </thead>
     <tbody>
 
-      <tr ng-repeat="item in stock | orderBy:vm.sortBy">
+      <tr ng-repeat="item in stock | orderBy:vm.sortBy | filter:{ name: vm.search }">
         <td>
           <img ng-src="{{item.imageUrl}}">
         </td>
@@ -53,7 +53,7 @@
           <p><strong>Caffeine Scale: </strong><span ng-bind="item.caffeineScale"></span></p>
           <p><strong>Ingredients: </strong><span ng-bind="item.ingredients"></span></p>
           <p><strong>Rating: </strong><span ng-bind="item.rating"></span></p>
-          <p><strong>In Stock? </strong><span ng-bind="item.inStock"></span></p>
+          <p><strong>In Stock? </strong><span ng-bind="item.inStock | inStock"></span></p>
           <p><strong>Categories</strong></p>
           <ul>
             <li ng-repeat="category in item.categories"><span ng-bind="category"></span></li>
