@@ -13,7 +13,11 @@ angular.module('teaParty')
           "rating": 4,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
           "__v": 0,
-          "categories": ["cold"]
+          "categories": ["cold"],
+          "quantity": 2,
+          subTotal: function () {
+            return (this.price * this.quantity);
+          }
       },
       {
           "_id": "55c8ee82152165d244b98303",
@@ -25,7 +29,12 @@ angular.module('teaParty')
           "rating": 1,
           "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
           "__v": 0,
-          "categories": ["dry", "hot", "awesome"]
+          "categories": ["dry", "hot", "awesome"],
+          "quantity": 4,
+          subTotal: function () {
+            return (this.price * this.quantity);
+          }
+          
       }
     ],
 

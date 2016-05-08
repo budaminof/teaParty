@@ -9,6 +9,7 @@ table {
   clear: both;
   width: 90%;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .table-search, .cart {

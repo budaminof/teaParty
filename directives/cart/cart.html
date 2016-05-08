@@ -1,5 +1,5 @@
 <div class="cart">
-  <h3><span>My Shopping Cart:</span><span class="move-right">Order total: <span></span></span></h3>
+  <h3><span>My Shopping Cart:</span><span class="move-right">Order total: <span ng-bind="total() | currencyConverter | currency:'$'"></span></span></h3>
   <table>
     <thead>
       <tr>
@@ -25,10 +25,22 @@
           <p><strong>Caffeine Scale: </strong><span ng-bind="item.caffeineScale"></span></p>
           <p><strong>Rating: </strong><span ng-bind="item.rating"></span></p>
           <p><strong>Ingredients: </strong><span ng-bind="item.ingredients"></span></p>
-          <p><strong>Price: </strong><span ng-bind="item.price"></span></p>
+          <p><strong>Price: </strong><span ng-bind="item.price | currencyConverter | currency:'$'"></span></p>
         </td>
-
+        <td>
+          <p ng-bind="item.quantity" ng-hide="vm.allow"></p>
+            <input type="number" name="form.quantity" ng-show="vm.allow"  min="1" max="50" required ng-model="item.quantity" value="">
+        </td>
+        <td>
+          <p ng-bind="item.subTotal() | currencyConverter | currency:'$'"></p>
+        </td>
+        <td>
+            <button class="btn btn-warning" ng-click="allowEdit()" ng-hide="vm.allow">Edit</button>
+            <input type="submit" class="btn btn-warning" ng-show="vm.allow" value="Save" ng-click="saveEdit()">
+            <button class="btn btn-danger" ng-click="delete(item)">Remove</button>
+        </td>
       </tr>
     </tbody>
   </table>
+  <button class="btn btn-success btn-lg">Place order</button>
 </div>
