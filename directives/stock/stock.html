@@ -4,7 +4,7 @@
         <option value="{{item}}" ng-repeat="item in categoriesMaster">{{item}}</option>
       </select>
       Search by name: <input ng-model="vm.search" type="text">
-      <button class="cart-butt btn btn-danger">Checkout | Cart:</button>
+      <a ng-href="/cart"><button class="cart-butt btn btn-danger" ng-click="checkout()">Checkout | Cart:</button></a>
   </p>
 
 </div>
@@ -34,7 +34,7 @@
           <h3>
             <span ng-bind="item.name" class="nametea"></span>
             <span class="text-right"><h3>Quantity:
-              <select ng-model="quantity">
+              <select ng-model="item.quantity">
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
@@ -45,11 +45,11 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
               </select>
-              <button class="btn btn-warning">Add To Cart</button>
+              <button class="btn btn-warning" ng-click="addToCart(item)">Add To Cart</button>
             </h3>
             </span>
           </h3>
-          <p><strong>Price: </strong><span ng-bind="item.price | currencyConverter | currency:'$' "></span></p>
+          <p><strong>Price: </strong><span ng-bind="item.price | currencyConverter | currency:'$'"></span></p>
           <p><strong>Caffeine Scale: </strong><span ng-bind="item.caffeineScale"></span></p>
           <p><strong>Ingredients: </strong><span ng-bind="item.ingredients"></span></p>
           <p><strong>Rating: </strong><span ng-bind="item.rating"></span></p>

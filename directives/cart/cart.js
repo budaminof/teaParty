@@ -10,7 +10,7 @@ angular.module('teaParty')
       scope.vm.allow= false;
 
       scope.cart = cartService.getCart();
-      $log.log('IN DIRECTIVE CART',scope.cart);
+      $log.log('4 IN DIRECTIVE CART',scope.cart);
 
       scope.total = function() {
         var total = 0;
