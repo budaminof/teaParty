@@ -2,10 +2,28 @@ angular.module('teaParty')
 .factory('teaService',['$log', function ($log) {
 
 var teaService = {
+  categories: [],
+
+  getCategories: function () {
+    return this.categories;
+  },
+
   getStock: function () {
-    $log.log('in service getter function', this.stock);
     return this.stock;
   },
+
+  categoriesScraper: function () {
+
+    this.stock.forEach(function (item) {
+      item.categories.forEach(function (category) {
+        if(teaService.categories.indexOf(category) == -1){
+          teaService.categories.push(category)
+        }
+      })
+    })
+    return (teaService.categories)
+  },
+
   stock: [
           {
               "_id": "55c8ee82152165d244b98300",

@@ -7,6 +7,8 @@ angular.module('teaParty')
     scope: {},
     link: function (scope, element, attr, fn) {
       scope.stock = teaService.getStock();
+      teaService.categoriesScraper();
+      scope.categoriesMaster = teaService.getCategories();
     }
 
   }
