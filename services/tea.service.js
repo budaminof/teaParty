@@ -2,6 +2,7 @@ angular.module('teaParty')
 .factory('teaService',['$log', function ($log) {
 
 var teaService = {
+
   categories: [],
 
   getCategories: function () {
