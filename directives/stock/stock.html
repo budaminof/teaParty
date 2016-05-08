@@ -15,9 +15,9 @@
         <th><h5>
           <span class="nametea">Information</span>
           <span class="text-right"><h5>Sort By Price:
-            <select ng-model="sortBy">
-              <option value="-">Highest</option>
-              <option value="">Lowest</option>
+            <select ng-model="vm.sortBy">
+              <option value="-price">Highest</option>
+              <option value="price">Lowest</option>
             </select>
           </h5>
           </span>
@@ -26,7 +26,7 @@
     </thead>
     <tbody>
 
-      <tr ng-repeat="item in stock">
+      <tr ng-repeat="item in stock | orderBy:vm.sortBy">
         <td>
           <img ng-src="{{item.imageUrl}}">
         </td>
@@ -49,7 +49,7 @@
             </h3>
             </span>
           </h3>
-          <p><strong>Price: </strong><span ng-bind="item.price"></span></p>
+          <p><strong>Price: </strong><span ng-bind="item.price | currencyConverter | currency:'$' "></span></p>
           <p><strong>Caffeine Scale: </strong><span ng-bind="item.caffeineScale"></span></p>
           <p><strong>Ingredients: </strong><span ng-bind="item.ingredients"></span></p>
           <p><strong>Rating: </strong><span ng-bind="item.rating"></span></p>
