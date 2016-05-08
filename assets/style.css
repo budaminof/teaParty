@@ -1,6 +1,9 @@
 .nametea, .teainfo, .nav {
 float: left;
 }
+.move-right {
+float:right;
+}
 
 table {
   clear: both;
@@ -8,7 +11,7 @@ table {
   margin-top: 30px;
 }
 
-.table-search {
+.table-search, .cart {
   width: 90%;
 }
 

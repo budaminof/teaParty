@@ -1,3 +1,34 @@
-<div>
-  <h3>we are in the Cart Directive</h3>
+<div class="cart">
+  <h3><span>My Shopping Cart:</span><span class="move-right">Order total: <span></span></span></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Products
+        </th>
+        <th>
+          Quantity
+        </th>
+        <th>
+          Sub-Total
+        </th>
+        <th>
+          Modify
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in cart">
+        <td>
+          <h3 ng-bind="item.name"></h3>
+          <img ng-src="{{item.imageUrl}}" alt="tea">
+          <p><strong>Caffeine Scale: </strong><span ng-bind="item.caffeineScale"></span></p>
+          <p><strong>Rating: </strong><span ng-bind="item.rating"></span></p>
+          <p><strong>Ingredients: </strong><span ng-bind="item.ingredients"></span></p>
+          <p><strong>Price: </strong><span ng-bind="item.price"></span></p>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
 </div>
