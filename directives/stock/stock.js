@@ -12,48 +12,27 @@ angular.module('teaParty')
       teaService.categoriesScraper();
       scope.categoriesMaster = teaService.getCategories();
 
-      scope.addToCart = function (foo) {
-        console.log(foo.quantity);
-        var index = scope.tempCart.indexOf(foo);
-
-        if(!foo.quantity){
-          foo.quantity = 1;
-          console.log(foo.quantity);
-        }
-        console.log('index', index);
-        if(index >= 0){
-          scope.tempCart[index].quantity = Number(foo.quantity);
-        } else {
-          console.log('inside else');
-          foo.subTotal = function () {
-            return (this.price * this.quantity);
+      scope.addToCart = function (item) {
+        var index = scope.tempCart.indexOf(item);
+        if (!item.quantity) {
+          item.quantity = 1;
           }
-          foo.quantity = Number(foo.quantity);
-          scope.tempCart.push(foo);
-        }
-        console.log('FOO',foo);
-        console.log('CART', scope.tempCart);
+        if(index >= 0){
+            scope.tempCart[index].quantity = Number(item.quantity);
+            $log.log('if exist UPDATE',scope.tempCart)
+          } else {
+            item.quantity = Number(item.quantity);
 
-
-        // if (isNaN(foo.quantity)) {
-        //   foo.quantity = 1;
-        // }
-        // if (index >= 0) {
-        //   if (isNaN(foo.quantity)) {
-        //     foo.quantity = 1;
-        //   }
-        //   scope.tempCart[index].quantity = Number(foo.quantity);
-        // } else {
-        //   foo.quantity = Number(foo.quantity);
-        //
-        // }
+            item.subTotal = function () {
+              return (this.price * this.quantity);
+            }
+            scope.tempCart.push(item);
+          }
         return
-
       }
 
       scope.checkout = function () {
         cartService.sendToCart(scope.tempCart);
-        $log.log('3 sending to checkout', scope.tempCart)
         return
       }
 
@@ -62,10 +41,12 @@ angular.module('teaParty')
         var number = 0;
         scope.tempCart.forEach(function (e){
           number += e.quantity;
+          $log.log('In cart Quantity', e);
+          $log.log(e.quantity);
         })
         return number;
       }
     }
 
   }
-}])
+}]);

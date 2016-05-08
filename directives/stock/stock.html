@@ -38,7 +38,7 @@
           <h3>
             <span ng-bind="item.name" class="nametea"></span>
             <span class="text-right"><h3>Quantity:
-              <select ng-model="item.quantity">
+              <select ng-model="item.quantity" ng-init="item.quantity='1'">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
