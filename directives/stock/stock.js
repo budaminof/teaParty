@@ -12,23 +12,58 @@ angular.module('teaParty')
       teaService.categoriesScraper();
       scope.categoriesMaster = teaService.getCategories();
 
-      scope.addToCart = function (item) {
-        if (!item.quantity) {
-          item.quantity = 1;
+      scope.addToCart = function (foo) {
+        console.log(foo.quantity);
+        var index = scope.tempCart.indexOf(foo);
+
+        if(!foo.quantity){
+          foo.quantity = 1;
+          console.log(foo.quantity);
+        }
+        console.log('index', index);
+        if(index >= 0){
+          scope.tempCart[index].quantity = Number(foo.quantity);
+        } else {
+          console.log('inside else');
+          foo.subTotal = function () {
+            return (this.price * this.quantity);
           }
-        item.quantity = Number(item.quantity);
-        item.subTotal = function () {
-          return (this.price * this.quantity);
-          }
-        scope.tempCart.push(item);
-        $log.log('1 in add to cart', scope.tempCart)
+          foo.quantity = Number(foo.quantity);
+          scope.tempCart.push(foo);
+        }
+        console.log('FOO',foo);
+        console.log('CART', scope.tempCart);
+
+
+        // if (isNaN(foo.quantity)) {
+        //   foo.quantity = 1;
+        // }
+        // if (index >= 0) {
+        //   if (isNaN(foo.quantity)) {
+        //     foo.quantity = 1;
+        //   }
+        //   scope.tempCart[index].quantity = Number(foo.quantity);
+        // } else {
+        //   foo.quantity = Number(foo.quantity);
+        //
+        // }
         return
+
       }
 
       scope.checkout = function () {
         cartService.sendToCart(scope.tempCart);
         $log.log('3 sending to checkout', scope.tempCart)
         return
+      }
+
+      scope.cartQuantity = function () {
+
+        var number = 0;
+        scope.tempCart.forEach(function (e){
+          number += e.quantity;
+        })
+        return number;
       }
     }
 
