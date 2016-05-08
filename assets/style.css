@@ -1,5 +1,15 @@
-.nametea, .teainfo {
+.nametea, .teainfo, .nav {
 float: left;
+}
+
+table {
+  clear: both;
+  width: 90%;
+  margin-top: 30px;
+}
+
+.table-search {
+  width: 90%;
 }
 
 table, tr, td, th {
@@ -10,3 +20,15 @@ table, tr, td, th {
  td, th {
    padding: 7px;
  }
+
+.header {
+  color: rgb(253, 125, 84);
+  font-style: italic;
+  font-size: 5em;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.cart-butt {
+  float:right;
+}
