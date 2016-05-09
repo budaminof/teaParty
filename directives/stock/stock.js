@@ -21,7 +21,6 @@ angular.module('teaParty')
           }
         if(index >= 0){
             scope.tempCart[index].quantity = Number(item.quantity);
-            $log.log('if exist UPDATE',scope.tempCart)
           } else {
             item.quantity = Number(item.quantity);
 
