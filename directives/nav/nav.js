@@ -6,12 +6,9 @@ angular.module('teaParty')
     templateUrl: '/directives/nav/nav.html',
     scope: {},
     link: function (scope, element, attr, fn) {
-
       scope.isActive = function (viewLocation) {
-        $log.log('In Nav Directive', viewLocation);
         return viewLocation === $location.path();
       }
-
 
     }
   }

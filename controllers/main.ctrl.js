@@ -1,5 +1,5 @@
 angular.module('teaParty')
-.controller('MainCtrl', ['$scope', '$log','$location', function ($scope, $log, $location) {
+.controller('MainCtrl', ['$scope', function ($scope) {
 
   $scope.vm = {};
 

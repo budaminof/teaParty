@@ -8,7 +8,6 @@ angular.module('teaParty')
     link: function (scope, element, attr, fn) {
       scope.vm = {};
       scope.vm.allow = false;
-      scope.vm.path = $location.path();
 
       scope.cart = cartService.getCart();
 
