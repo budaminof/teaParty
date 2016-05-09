@@ -9,7 +9,6 @@ angular.module('teaParty')
       scope.vm = {};
       scope.vm.allow = false;
       scope.vm.path = $location.path();
-      $log.log('Path in Cart', scope.vm.path)
 
       scope.cart = cartService.getCart();
 
