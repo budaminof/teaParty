@@ -31,8 +31,10 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" ng-href="/">Home</a>
-            <a class="navbar-brand" ng-href="/cart">Cart</a>
+            <ul class="nav navbar-nav">
+              <li ng-class="{activePath: vm.path === '/'}"><a href="/">Home</a></li>
+              <li ng-class="{activePath: vm.path === '/cart'}"><a href="/cart">Cart</a></li>
+            </ul>
           </div>
         </div>
       </nav>

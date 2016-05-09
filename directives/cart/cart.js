@@ -10,7 +10,6 @@ angular.module('teaParty')
       scope.vm.allow= false;
 
       scope.cart = cartService.getCart();
-      $log.log('4 IN DIRECTIVE CART',scope.cart);
 
       scope.total = function() {
         var total = 0;
@@ -21,13 +20,10 @@ angular.module('teaParty')
       }
 
       scope.allowEdit = function () {
-        $log.log('EDIT submit function !!!', scope.cart[0].subTotal())
-
         return scope.vm.allow = true;
       }
 
       scope.saveEdit = function () {
-        $log.log('SAVE edit submit function !!!', scope.cart[0].subTotal())
         return scope.vm.allow = false;
       }
 

@@ -36,3 +36,8 @@ table, tr, td, th {
 .cart-butt {
   float:right;
 }
+
+.activePath {
+  background-color: red;
+  color: red;
+}

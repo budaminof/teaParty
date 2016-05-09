@@ -1,5 +1,5 @@
 angular.module('teaParty')
-.directive('teaStock', ['teaService','$log','cartService',function (teaService, $log, cartService) {
+.directive('teaStock', ['teaService','$log','cartService','$location', function (teaService, $log, cartService, $location) {
 
   return {
     restrict: 'E',
@@ -9,6 +9,8 @@ angular.module('teaParty')
       scope.tempCart = [];
       scope.vm = {};
       scope.vm.number = 0;
+      scope.vm.path = $location.path();
+      $log.log('Path is', scope.vm.path)
 
       scope.stock = teaService.getStock();
       teaService.categoriesScraper();
