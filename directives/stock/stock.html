@@ -4,7 +4,7 @@
         <option value="{{item}}" ng-repeat="item in categoriesMaster">{{item}}</option>
       </select>
       Search by name: <input ng-model="vm.search" type="text">
-      <a ng-href="/cart"><button class="cart-butt btn btn-danger" ng-click="checkout()">Checkout | Cart:<span ><ng-pluralize count="cartQuantity()"
+      <a ng-href="/cart"><button class="cart-butt btn btn-danger" ng-click="checkout()">Checkout | Cart:<span ><ng-pluralize count="vm.number"
                  when="{0: 'Empty',
                       1: '{}',
                      'other': '{}'}">
@@ -19,7 +19,7 @@
         <th><h5>
           <span class="nametea">Information</span>
           <span class="text-right"><h5>Sort By Price:
-            <select ng-model="vm.sortBy">
+            <select ng-model="vm.sortBy" ng-init="vm.sortBy='price'">
               <option value="-price">Highest</option>
               <option value="price">Lowest</option>
             </select>

@@ -7,6 +7,8 @@ angular.module('teaParty')
     scope: {},
     link: function (scope, element, attr, fn) {
       scope.tempCart = [];
+      scope.vm = {};
+      scope.vm.number = 0;
 
       scope.stock = teaService.getStock();
       teaService.categoriesScraper();
@@ -28,6 +30,7 @@ angular.module('teaParty')
             }
             scope.tempCart.push(item);
           }
+        scope.cartQuantity();
         return
       }
 
@@ -37,15 +40,13 @@ angular.module('teaParty')
       }
 
       scope.cartQuantity = function () {
-
-        var number = 0;
+        scope.vm.number = 0;
         scope.tempCart.forEach(function (e){
-          number += e.quantity;
-          $log.log('In cart Quantity', e);
-          $log.log(e.quantity);
+        scope.vm.number += e.quantity;
         })
-        return number;
+        return scope.vm.number;
       }
+
     }
 
   }
