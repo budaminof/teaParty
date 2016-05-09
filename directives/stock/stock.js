@@ -9,10 +9,6 @@ angular.module('teaParty')
       scope.tempCart = [];
       scope.vm = {};
       scope.vm.number = 0;
-      scope.isActive = function (viewLocation) {
-          return viewLocation === $location.path();
-      }
-      $log.log('Path in Home', $location.path());
 
       scope.stock = teaService.getStock();
       teaService.categoriesScraper();
