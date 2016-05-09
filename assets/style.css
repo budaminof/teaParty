@@ -37,7 +37,7 @@ table, tr, td, th {
   float:right;
 }
 
-.activePath {
+.activepath {
   background-color: red;
   color: red;
 }

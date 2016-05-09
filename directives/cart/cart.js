@@ -1,5 +1,5 @@
 angular.module('teaParty')
-.directive('teaCart', ['cartService', '$log', function (cartService, $log) {
+.directive('teaCart', ['cartService', '$log','$location', function (cartService, $log, $location) {
 
   return {
     restrict: 'E',
@@ -7,7 +7,9 @@ angular.module('teaParty')
     scope: {},
     link: function (scope, element, attr, fn) {
       scope.vm = {};
-      scope.vm.allow= false;
+      scope.vm.allow = false;
+      scope.vm.path = $location.path();
+      $log.log('Path in Cart', scope.vm.path)
 
       scope.cart = cartService.getCart();
 
